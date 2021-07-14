@@ -1,0 +1,2 @@
+this file is created to push the empty "output" folder. since git doesn't 
+allow pushing empty folders.

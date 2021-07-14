@@ -1,0 +1,9 @@
+geopy
+nltk
+requests
+Flask
+Flask-Restful
+pydantic
+pandas
+openpyxl
+Faker
