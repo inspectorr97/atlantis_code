@@ -28,7 +28,7 @@ class SplitCsv(Resource):
         try:
             args = arg_parser.parse_args()
             upload_file_list = args['file']
-            print(upload_file_list)
+            #print(upload_file_list)
             # configure file upload folder
             file_root = os.path.realpath(os.path.dirname(__file__))
             app.config['UPLOAD_FOLDER'] = os.path.join(
