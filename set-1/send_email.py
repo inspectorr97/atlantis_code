@@ -30,8 +30,11 @@ if __name__ == "__main__":
     subject = input("Subject? ")
     body = input("Body? ")
     recipient = input("Recipient? ")
-    status = send_email(sender_email, sender_pwd, body, subject, recipient)
-    if status == True:
-        print("Email sent!")
+    if sender_email == "" or sender_pwd == "" or subject == "" or body == "" or recipient == "":
+        print("Incorrect input, please validate the input and try again!")
     else:
-        print("exception occured: ", status)
+        status = send_email(sender_email, sender_pwd, body, subject, recipient)
+        if status == True:
+            print("Email sent!")
+        else:
+            print("exception occured: ", status)

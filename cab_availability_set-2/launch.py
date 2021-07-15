@@ -31,6 +31,9 @@ class CabManagement(Resource):
             license_number = args[constants.LICENSE_NUMBER]
             email = args[constants.EMAIL]
 
+            if name == "" or car_number == "" or phone_number == "" or license_number == "" or email == "":
+                return make_response(jsonify(JsonSyntaxError().to_json()))
+
             info_json = {}
             info_json[constants.NAME] = name
             info_json[constants.CAR_NUMBER] = car_number
@@ -58,6 +61,10 @@ class LocationUpdate(Resource):
         try:
             args = arg_parser.parse_args()
             coordinates = args['coordinates']
+
+            if coordinates == "":
+                return make_response(jsonify(JsonSyntaxError().to_json()))
+
             if "," in str(coordinates):
                 filtered_coordinates = coordinates.split(",")
                 lat, long = float(filtered_coordinates[0]), float(filtered_coordinates[1])
@@ -81,6 +88,10 @@ class SearchCabs(Resource):
         try:
             args = arg_parser.parse_args()
             coordinates = args['coordinates']
+            
+            if coordinates == "":
+                return make_response(jsonify(JsonSyntaxError().to_json()))
+            
             if "," in str(coordinates):
                 filtered_coordinates = coordinates.split(",")
                 lat, long = float(filtered_coordinates[0]), float(filtered_coordinates[1])

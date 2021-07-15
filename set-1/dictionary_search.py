@@ -18,5 +18,9 @@ def get_meaning(word):
 
 if __name__ == "__main__":
     word = input("Word? ")
-    type, meaning = get_meaning(word)
-    print(f"{word}. {type}. {meaning}")
+    if word != "":
+        type, meaning = get_meaning(word)
+        print(f"{word}. {type}. {meaning}")
+    else:
+        print("please enetr a valid word to be searched")
+

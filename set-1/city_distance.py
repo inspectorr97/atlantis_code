@@ -44,5 +44,8 @@ def get_distance(city1, city2):
 if __name__ == "__main__":
     City1 = input("City1: ")
     City2 = input("City2: ")
-    distance = get_distance(City1, City2)
-    print(f"City 1 and City 2 are {distance} km apart")
+    if City1 == "" or City2 == "":
+        print("incorrect coordinates input")
+    else:
+        distance = get_distance(City1, City2)
+        print(f"City 1 and City 2 are {distance} km apart")

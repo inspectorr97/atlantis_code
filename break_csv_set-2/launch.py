@@ -23,11 +23,12 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXT
 
 
-class WebsiteScraping(Resource):
+class SplitCsv(Resource):
     def post(self):
         try:
             args = arg_parser.parse_args()
             upload_file_list = args['file']
+            print(upload_file_list)
             # configure file upload folder
             file_root = os.path.realpath(os.path.dirname(__file__))
             app.config['UPLOAD_FOLDER'] = os.path.join(
@@ -62,7 +63,7 @@ class WebsiteScraping(Resource):
             return make_response(jsonify(InternalServerError().to_json()))
 
 
-api.add_resource(WebsiteScraping, '/upload')
+api.add_resource(SplitCsv, '/upload')
 
 if __name__ == "__main__":
     app.run(debug=True)
